@@ -12,6 +12,7 @@
     "start-slack:prod": "node newman-slack.js --env prod",
     "postReport": "node postReport.js",
     "lint-fix": "eslint . --fix",
+    "lint": "eslint .",
     "crypto": "node ./docs/encrypt-decrypt.js"
   },
   "keywords": ["Postman", "Newman", "Api Automation Test"],
