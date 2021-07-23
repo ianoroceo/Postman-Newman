@@ -1,0 +1,41 @@
+{
+  "name": "Postman-Newman",
+  "version": "1.0.0",
+  "description": "Api Automation Test using Postman and Newman",
+  "main": "newman.js",
+  "scripts": {
+    "test:dev": "node newman.js",
+    "start-slack:dev": "node newman-slack.js",
+    "test:qa": "node newman.js --env qa",
+    "start-slack:qa": "node newman-slack.js --env qa",
+    "test:prod": "node newman.js --env prod",
+    "start-slack:prod": "node newman-slack.js --env prod",
+    "postReport": "node postReport.js",
+    "lint-fix": "eslint . --fix",
+    "crypto": "node ./docs/encrypt-decrypt.js"
+  },
+  "keywords": ["Postman", "Newman", "Api Automation Test"],
+  "author": "Ian Oroceo",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "globe": "^0.3.1",
+    "newman": "^5.1.2",
+    "newman-reporter-htmlextra": "^1.17.3",
+    "yargs": "^15.4.1"
+  },
+  "devDependencies": {
+    "crypto-js": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.31.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "pretty-ms": "^7.0.1"
+  }
+}

@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "8a7aa2ee-7093-449b-aa3e-34206c632ae3",
+		"name": "Official Joke API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "errorHandling",
+			"item": [
+				{
+					"name": "Get 10 Random Joke - pass random string",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expect = pm.expect;",
+									"const it = pm.test;",
+									"const testName = pm.info.requestName;",
+									"const envVar = pm.environment;",
+									"const getVar = pm.variables;",
+									"",
+									"eval(getVar.get(\"errorAssertion\"));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const envVar = pm.environment;",
+									"",
+									"const randomWord = pm.variables.replaceIn('{{$randomWord}}')",
+									"envVar.set('randomWord', randomWord)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jokes/{{randomWord}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jokes",
+								"{{randomWord}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Random Joke by Type not Existing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expect = pm.expect;",
+									"const it = pm.test;",
+									"const testName = pm.info.requestName;",
+									"const envVar = pm.environment;",
+									"const getVar = pm.variables;",
+									"",
+									"eval(getVar.get(\"successAssertion\"));",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"",
+									"it(`${testName}: Should return No Random Joke in the Response`, () => { ",
+									"\texpect(jsonData.length).to.eql(0)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jokes/{{notExistingJokeType}}/random",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jokes",
+								"{{notExistingJokeType}}",
+								"random"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Random Joke",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const expect = pm.expect;",
+							"const it = pm.test;",
+							"const testName = pm.info.requestName;",
+							"const envVar = pm.environment;",
+							"const getVar = pm.variables;",
+							"",
+							"eval(getVar.get(\"successAssertion\"));",
+							"",
+							"const jsonData = pm.response.json();",
+							"",
+							"",
+							"it(`${testName}: Should return Random Joke in the Response`, () => { ",
+							"\texpect(jsonData.id).not.eql(undefined)",
+							"\texpect(jsonData.type).not.eql(undefined)",
+							"\texpect(jsonData.setup).not.eql(undefined)",
+							"\texpect(jsonData.punchline).not.eql(undefined)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/random_joke",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"random_joke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Random Joke by Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const expect = pm.expect;",
+							"const it = pm.test;",
+							"const testName = pm.info.requestName;",
+							"const envVar = pm.environment;",
+							"const getVar = pm.variables;",
+							"",
+							"eval(getVar.get(\"successAssertion\"));",
+							"",
+							"const jsonData = pm.response.json();",
+							"",
+							"",
+							"it(`${testName}: Should return Random Joke in the Response`, () => { ",
+							"\tjsonData.forEach((item,idx) => {",
+							"\t\texpect(item.id).not.eql(undefined)",
+							"\t\texpect(item.type).not.eql(undefined)",
+							"\t\texpect(item.type).to.eql(getVar.get('jokeType'))",
+							"\t\texpect(item.setup).not.eql(undefined)",
+							"\t\texpect(item.punchline).not.eql(undefined)",
+							"\t})",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/jokes/{{jokeType}}/random",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"jokes",
+						"{{jokeType}}",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Random Joke - different request format",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const expect = pm.expect;",
+							"const it = pm.test;",
+							"const testName = pm.info.requestName;",
+							"const envVar = pm.environment;",
+							"const getVar = pm.variables;",
+							"",
+							"eval(getVar.get(\"successAssertion\"));",
+							"",
+							"const jsonData = pm.response.json();",
+							"",
+							"",
+							"it(`${testName}: Should return Random Joke in the Response`, () => { ",
+							"\texpect(jsonData.id).not.eql(undefined)",
+							"\texpect(jsonData.type).not.eql(undefined)",
+							"\texpect(jsonData.setup).not.eql(undefined)",
+							"\texpect(jsonData.punchline).not.eql(undefined)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/jokes/random",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"jokes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get 10 Random Joke",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const expect = pm.expect;",
+							"const it = pm.test;",
+							"const testName = pm.info.requestName;",
+							"const envVar = pm.environment;",
+							"const getVar = pm.variables;",
+							"",
+							"eval(getVar.get(\"successAssertion\"));",
+							"",
+							"const jsonData = pm.response.json();",
+							"",
+							"",
+							"it(`${testName}: Should return Random Jokes in the Response`, () => { ",
+							"\tjsonData.forEach((item,idx) => {",
+							"\t\texpect(item.id).not.eql(undefined)",
+							"\t\texpect(item.type).not.eql(undefined)",
+							"\t\texpect(item.setup).not.eql(undefined)",
+							"\t\texpect(item.punchline).not.eql(undefined)",
+							"\t})",
+							"});",
+							"",
+							"it(`${testName}: Should return 10 Random Jokes in the Response`, () => { ",
+							"\texpect(jsonData.length).to.eql(10)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/random_ten",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"random_ten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get 10 Random Joke by Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const expect = pm.expect;",
+							"const it = pm.test;",
+							"const testName = pm.info.requestName;",
+							"const envVar = pm.environment;",
+							"const getVar = pm.variables;",
+							"",
+							"eval(getVar.get(\"successAssertion\"));",
+							"",
+							"const jsonData = pm.response.json();",
+							"",
+							"",
+							"it(`${testName}: Should return Random Jokes in the Response`, () => { ",
+							"\tjsonData.forEach((item,idx) => {",
+							"\t\texpect(item.id).not.eql(undefined)",
+							"\t\texpect(item.type).not.eql(undefined)",
+							"\t\texpect(item.type).to.eql('general')",
+							"\t\texpect(item.setup).not.eql(undefined)",
+							"\t\texpect(item.punchline).not.eql(undefined)",
+							"\t})",
+							"});",
+							"",
+							"it(`${testName}: Should return 10 Random Jokes in the Response`, () => { ",
+							"\texpect(jsonData.length).to.eql(10)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/jokes/general/ten",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"jokes",
+						"general",
+						"ten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get 10 Random Joke - diff request call",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const expect = pm.expect;",
+							"const it = pm.test;",
+							"const testName = pm.info.requestName;",
+							"const envVar = pm.environment;",
+							"const getVar = pm.variables;",
+							"",
+							"eval(getVar.get(\"successAssertion\"));",
+							"",
+							"const jsonData = pm.response.json();",
+							"",
+							"",
+							"it(`${testName}: Should return Random Jokes in the Response`, () => { ",
+							"\tjsonData.forEach((item,idx) => {",
+							"\t\texpect(item.id).not.eql(undefined)",
+							"\t\texpect(item.type).not.eql(undefined)",
+							"\t\texpect(item.setup).not.eql(undefined)",
+							"\t\texpect(item.punchline).not.eql(undefined)",
+							"\t})",
+							"});",
+							"",
+							"it(`${testName}: Should return 10 Random Jokes in the Response`, () => { ",
+							"\texpect(jsonData.length).to.eql(10)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/jokes/ten",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"jokes",
+						"ten"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "successAssertion",
+			"value": "if (pm.response.code != 200 || 201 || 202) {\n    it(`${testName}: Should display correct Successful Response Code`, () => {\n        expect(pm.response.code).to.be.oneOf([200, 201, 202]);\n    });\n}"
+		},
+		{
+			"key": "errorAssertion",
+			"value": "it(`${testName}: Should display correct Failure Response Code`, () => {\n  expect(pm.response.code).to.be.oneOf([400, 401, 404, 500]);\n});"
+		}
+	]
+}
