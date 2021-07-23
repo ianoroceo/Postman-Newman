@@ -13,7 +13,7 @@ const envRelease = process.env.RELEASE_RELEASENAME;
 const releaseName = envRelease === undefined ? " " : envRelease;
 
 const authToken =
-  "QmVhcmVyIHhveGItMjE2NzYxNjMzNi0yMzA3NzY0NjgwNjkxLWxTY1g2c0tQMGdUT3VrTFBkcFBlOWN5Tg==";
+  "QmVhcmVyIHhveGItNTcxNzY0OTAzMjAzLTIzMDc5NDk4Mzg0ODItWnlLQlg5RGM2TmVhRklGZ3RmblZyZFA2";
 const CryptoJS = require("crypto-js");
 const encrypt = CryptoJS.enc.Base64.parse(authToken);
 const tokenD = encrypt.toString(CryptoJS.enc.Utf8);
@@ -33,7 +33,7 @@ data.append(
   "initial_comment",
   `This is the API Test HTML Report for ${env} - ${releaseName} :memo: Please download the File`
 );
-data.append("channels", "C029Q378J9W");
+data.append("channels", "C02983RHFRA");
 
 const config = {
   method: "post",

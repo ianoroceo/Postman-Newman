@@ -2,6 +2,8 @@
 
 This document will help you integrate your test results to Slack. The Automation Solution is already hooked up for you with few modifications needed in [newman-slack.js](../newman-slack.js) and [postReport.js](../postReport.js)
 
+> Note: I suggest signing up for a free Slack Workspace. Or you can use my workspace - https://thanatos10.slack.com/. Please reach out to me first if you want to be part of the workspace. Thank you
+
 ---
 
 > Note: Before you start, make sure you have access to create Slack Apps on your Slack workspace. If you don't have access, you can ask your Slack Workspace Admin to build this for you.
@@ -27,6 +29,7 @@ I'm going to layout how to do it using the method I went through but for the ful
 - Select the channel that you want the notification will be posted and click Allow
 - A Webhook URL will created. Click copy
     ![webhook-url](./slackImages/webhook-url.png)
+
 - Open [encrypt-decrypt.js](./encrypt-decrypt.js) and paste the Webhook URL. This is to encrypt the URL
 
     ```javascript
@@ -46,14 +49,14 @@ I'm going to layout how to do it using the method I went through but for the ful
 - On your terminal, run `npm run crypto` and copy the Encrypted value
 
     ```console
-    ianoroceo@ascendum-mbp Postman-Newman % npm run crypto
+    ianoroceo Postman-Newman % npm run crypto
 
     > Postman-Newman@1.0.0 crypto
     > node ./docs/encrypt-decrypt.js
 
     Encrypyed = UEFTVEUgVEhFIFdFQkhPT0sgVVJMIEhFUkU=
     Decrypted = PASTE THE WEBHOOK URL HERE
-    ianoroceo@ascendum-mbp Postman-Newman % 
+    ianoroceo Postman-Newman % 
     ```
 
 - Open [newman-slack.js](../newman-slack.js) and copy the Encrypted value to the uri constant
@@ -95,14 +98,14 @@ I'm going to layout how to do it using the method I went through but for the ful
 - On your terminal, run `npm run crypto` and copy the Encrypted value
 
     ```console
-    ianoroceo@ascendum-mbp Postman-Newman % npm run crypto
+    ianoroceo Postman-Newman % npm run crypto
 
     > Postman-Newman@1.0.0 crypto
     > node ./docs/encrypt-decrypt.js
 
     Encrypyed = QmVhcmVyIDxQQVNURSBUSEUgQk9UIFVTRVIgT0FVVEggVE9LRU4gSEVSRT4=
     Decrypted = Bearer <PASTE THE BOT USER OAUTH TOKEN HERE>
-    ianoroceo@ascendum-mbp Postman-Newman % 
+    ianoroceo Postman-Newman % 
     ```
 
 - Open [postReport.js](../postReport.js) and copy the Encrypted value to the authToken constant

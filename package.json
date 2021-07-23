@@ -12,11 +12,24 @@
     "start-slack:prod": "node newman-slack.js --env prod",
     "postReport": "node postReport.js",
     "lint-fix": "eslint . --fix",
+    "lint": "eslint .",
     "crypto": "node ./docs/encrypt-decrypt.js"
   },
-  "keywords": ["Postman", "Newman", "Api Automation Test"],
+  "keywords": [
+    "Postman",
+    "Newman",
+    "Api Automation Test"
+  ],
   "author": "Ian Oroceo",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianoroceo/Postman-Newman/issues"
+  },
+  "homepage": "https://github.com/ianoroceo/Postman-Newman#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianoroceo/Postman-Newman.git"
+  },
   "dependencies": {
     "app-root-path": "^3.0.0",
     "globe": "^0.3.1",
@@ -25,6 +38,7 @@
     "yargs": "^15.4.1"
   },
   "devDependencies": {
+    "axios": "^0.21.1",
     "crypto-js": "^4.1.1",
     "dotenv": "^10.0.0",
     "eslint": "^7.31.0",

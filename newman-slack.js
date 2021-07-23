@@ -12,7 +12,7 @@ const prettyMs = require("pretty-ms");
 
 // TODO: this needs to be moved to env in the future
 const uri =
-  "aHR0cHM6Ly9ob29rcy5zbGFjay5jb20vc2VydmljZXMvVDAyNFhKNDlXL0IwMjlFNkM0WTJELzVQZFZWSUFxSFpab0xqSWl4aUJjRHN1TA==";
+  "aHR0cHM6Ly9ob29rcy5zbGFjay5jb20vc2VydmljZXMvVEdUTkdTSzVaL0IwMjhNNlBHMEFLL3RjbGUzZ2xyZXdIQXl0Qjc1WlA0cU5LQg==";
 
 const CryptoJS = require("crypto-js");
 const encrypt = CryptoJS.enc.Base64.parse(uri);
