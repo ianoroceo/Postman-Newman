@@ -104,3 +104,4 @@ dist
 .tern-port
 
 report/
+.DS_Store

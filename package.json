@@ -18,6 +18,14 @@
   "keywords": ["Postman", "Newman", "Api Automation Test"],
   "author": "Ian Oroceo",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianoroceo/Postman-Newman/issues"
+  },
+  "homepage": "https://github.com/ianoroceo/Postman-Newman#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianoroceo/Postman-Newman.git"
+  },
   "dependencies": {
     "app-root-path": "^3.0.0",
     "globe": "^0.3.1",

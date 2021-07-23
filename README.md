@@ -61,11 +61,12 @@ newman.run({
 
 ## Running Using Postman
 
-1. Clone the repo — `https://github.com/vora/eqa-api-tests/tree/master/Postman-Newman`
+1. Clone the repo — `https://github.com/ianoroceo/Postman-Newman.git`
 
 2. Install Postman - `https://www.postman.com/downloads/`
 
 3. Import [Collection](https://github.com/vora/eqa-api-tests/blob/master/Postman-Newman/conf/collection/Github%20APi.postman_collection.json) and [Environment](https://github.com/vora/eqa-api-tests/tree/master/Postman-Newman/conf/environment)
+
     - [How to Import Collection and Environment](https://learning.postman.com/docs/postman/collections/importing-and-exporting-data/)
 
 4. Running Tests using [Postman Collection Runs](https://learning.postman.com/docs/postman/collection-runs/intro-to-collection-runs/)
@@ -74,29 +75,30 @@ newman.run({
 ## Running Using Node
 
 1. (Optional)Install nvm in your machine
+
     - [Install nvm on Windows](https://codeburst.io/nvm-for-windows-how-to-install-and-use-13b7a4209791)
     - [Install nvm on Mac](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/)
 
 2. Install nodeJs using nvm. You can also install nodeJS without using nvm. Here are some references if you are installing not using nvm
+
     - [Install nodeJs on Windows](https://phoenixnap.com/kb/install-node-js-npm-on-windows)
     - [Install nodeJs on Mac](https://www.webucator.com/how-to/how-install-nodejs-on-mac.cfm)
 
+
 3. Install your favorite IDE. I used [VS Code](https://code.visualstudio.com/download) for this
 
-4. Clone the repo — `https://github.com/vora/eqa-api-tests/tree/master/Postman-Newman`
+4. On your terminal (mac) / cmd (windows), go to your project directory and install the Node Packages using `npm install`
 
-5. On your terminal (mac) / cmd (windows), go to your project directory and install the Node Packages using `npm install`
-
-6. Run your test. `npm run test:dev`. To run on other environments, please provide the environment argument
+5. Run your test. `npm run test:dev`. To run on other environments, please provide the environment argument
     - Note: before running your test, if you made changes please execute ESLint first
 
     ```console
     npm run lint-fix
     ```
 
-7. Once all tests are executed, an aggregated report will be generated under `./report`.
+6. Once all tests are executed, an aggregated report will be generated under `./report`.
 
-8. Test Results can be also posted on Slack. Please read documentation how to setup [Slack Notification](./docs/SlackApp.md) 
+7. Test Results can be also posted on Slack. Please read documentation how to setup [Slack Notification](./docs/SlackApp.md) 
 ## Report Examples
 
 ![Dashboard Report](./docs/Newman_Summary_Report.png)
