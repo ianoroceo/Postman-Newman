@@ -15,7 +15,11 @@
     "lint": "eslint .",
     "crypto": "node ./docs/encrypt-decrypt.js"
   },
-  "keywords": ["Postman", "Newman", "Api Automation Test"],
+  "keywords": [
+    "Postman",
+    "Newman",
+    "Api Automation Test"
+  ],
   "author": "Ian Oroceo",
   "license": "ISC",
   "bugs": {
@@ -34,6 +38,7 @@
     "yargs": "^15.4.1"
   },
   "devDependencies": {
+    "axios": "^0.21.1",
     "crypto-js": "^4.1.1",
     "dotenv": "^10.0.0",
     "eslint": "^7.31.0",
