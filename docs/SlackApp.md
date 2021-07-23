@@ -49,14 +49,14 @@ I'm going to layout how to do it using the method I went through but for the ful
 - On your terminal, run `npm run crypto` and copy the Encrypted value
 
     ```console
-    ianoroceo@ascendum-mbp Postman-Newman % npm run crypto
+    ianoroceo Postman-Newman % npm run crypto
 
     > Postman-Newman@1.0.0 crypto
     > node ./docs/encrypt-decrypt.js
 
     Encrypyed = UEFTVEUgVEhFIFdFQkhPT0sgVVJMIEhFUkU=
     Decrypted = PASTE THE WEBHOOK URL HERE
-    ianoroceo@ascendum-mbp Postman-Newman % 
+    ianoroceo Postman-Newman % 
     ```
 
 - Open [newman-slack.js](../newman-slack.js) and copy the Encrypted value to the uri constant
@@ -98,14 +98,14 @@ I'm going to layout how to do it using the method I went through but for the ful
 - On your terminal, run `npm run crypto` and copy the Encrypted value
 
     ```console
-    ianoroceo@ascendum-mbp Postman-Newman % npm run crypto
+    ianoroceo Postman-Newman % npm run crypto
 
     > Postman-Newman@1.0.0 crypto
     > node ./docs/encrypt-decrypt.js
 
     Encrypyed = QmVhcmVyIDxQQVNURSBUSEUgQk9UIFVTRVIgT0FVVEggVE9LRU4gSEVSRT4=
     Decrypted = Bearer <PASTE THE BOT USER OAUTH TOKEN HERE>
-    ianoroceo@ascendum-mbp Postman-Newman % 
+    ianoroceo Postman-Newman % 
     ```
 
 - Open [postReport.js](../postReport.js) and copy the Encrypted value to the authToken constant

@@ -65,7 +65,7 @@ newman.run({
 
 2. Install Postman - `https://www.postman.com/downloads/`
 
-3. Import [Collection](https://github.com/vora/eqa-api-tests/blob/master/Postman-Newman/conf/collection/Github%20APi.postman_collection.json) and [Environment](https://github.com/vora/eqa-api-tests/tree/master/Postman-Newman/conf/environment)
+3. Import [Collection](./conf/collection/) and [Environment](./conf/environment/)
 
     - [How to Import Collection and Environment](https://learning.postman.com/docs/postman/collections/importing-and-exporting-data/)
 
