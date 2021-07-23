@@ -17,7 +17,7 @@ API Testing with Postman and Newman.
 
 ## Important Notes before Running Test
 
-- Running API Test using `node js`. You can use your own Imported Collection and Environment and TestData. These are controlled inside the `./conf/conf.js` file.
+- Running API Test using `node js`. You can use your own Imported Collection and Environment. These are controlled inside the `./conf/conf.js` file.
 
 - Put your postman Collection in `./conf/collection/` and make sure the file name format is `<whatever file name you have>_collection.json`
 
